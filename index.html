@@ -36,7 +36,7 @@
     padding:16px 18px; font-size:14.5px; box-shadow:var(--shadow); margin:0}
 
   .people{display:flex; flex-wrap:wrap; gap:10px}
-  .chip{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 14px; font-size:14px; box-shadow:var(--shadow); flex:1 1 auto; min-width:150px}
+  .chip{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 14px; font-size:14px; box-shadow:var(--shadow); flex:1 1 auto; min-width:170px}
   .chip b{display:block; font-size:15px}
   .chip span{color:var(--muted); font-size:13px}
 
@@ -50,12 +50,11 @@
   .timeline li:before{content:""; position:absolute; left:-7px; top:2px; width:12px; height:12px; border-radius:50%; background:var(--teal); border:2px solid #fff; box-shadow:0 0 0 2px var(--teal-soft)}
   .timeline .day{font-weight:700; font-size:14px}
   .timeline .day em{font-style:normal; color:var(--muted); font-weight:500}
-  .timeline .what{font-size:14px; margin-top:2px}
+  .timeline .what{font-size:14px; margin-top:4px}
+  .timeline .why{font-size:13px; margin-top:4px; color:var(--muted); font-style:italic}
   .timeline li.walk:before{background:var(--gold); box-shadow:0 0 0 2px var(--gold-soft)}
-  .timeline li.buffer:before{background:var(--blue); box-shadow:0 0 0 2px var(--blue-soft)}
   .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:2px 8px; border-radius:999px; margin-left:6px; vertical-align:middle}
   .tag.walk{background:var(--gold-soft); color:#7a5d12}
-  .tag.buffer{background:var(--blue-soft); color:var(--blue)}
   .tag.travel{background:#eee; color:#555}
 
   .cards{display:grid; grid-template-columns:1fr 1fr; gap:14px}
@@ -78,28 +77,26 @@
   <header class="hero">
     <p class="kicker">CEG EE '96/97 · annual boys trip</p>
     <h1>Camino de Santiago</h1>
-    <p>Maximum coastline, finishing in Santiago. Everyone's in — here's the plan.</p>
-    <div class="dates">Sun 27 Sep – Sun 11 Oct 2026 (tentative)</div>
+    <p>Nine days, one highlight a day, finishing in Santiago. Everyone's in — here's the plan.</p>
+    <div class="dates">Sun 27 Sep – Wed 7 Oct 2026</div>
   </header>
 
   <h2 class="sec">Who's walking</h2>
   <div class="people">
-    <div class="chip"><b>Arun</b><span>Sintra/Lisbon</span></div>
-    <div class="chip"><b>Balachander Jeyabalan</b><span>Chennai</span></div>
-    <div class="chip"><b>Balamurugan</b><span>Bay Area</span></div>
-    <div class="chip"><b>Munish</b><span>Chennai</span></div>
-    <div class="chip"><b>Gopal</b><span>Chennai</span></div>
+    <div class="chip"><b>Sintra / Lisbon</b><span>Arun</span></div>
+    <div class="chip"><b>Bay Area</b><span>Balamurugan</span></div>
+    <div class="chip"><b>Chennai</b><span>Balachander, Munish, Gopal</span></div>
   </div>
 
-  <h2 class="sec">What changed from Bala's v1</h2>
-  <p class="summary">Bala's original plan trained straight from Porto to Vigo, then walked Vigo → Santiago (not truly coastal, as he flagged himself). This draft keeps that Vigo → Santiago finish — it's also what qualifies for the Compostela certificate — and adds <b>4 coastal walking days</b> between Porto and Vigo: the boardwalks past Póvoa, the Apúlia stilt granaries, and the two highest-rated stretches on the whole route — the Galicia border crossing through A Guarda &amp; Oia's monastery, and the lighthouse walk into Baiona. Least-scenic connecting stretches are taxied. <b>10 walking days total</b>, ~16.5km/day average.</p>
+  <h2 class="sec">Why this route</h2>
+  <p class="summary">The full Porto→Santiago Camino is around 290km — at a comfortable 4-5 hours of walking a day, there's only time to cover roughly half of it on foot. So this route is deliberately selective: every walking day targets the single most scenic, most distinctive stretch in that area — boardwalks, a centuries-old stilt-granary beach, a river crossing into a new country, a cliff-top lighthouse, the ría woodlands into Pontevedra — and a taxi covers the connective bits in between that would just be more of the same scenery, or plain road walking, without adding anything new. Every day stays within the 4-5 hour cap; nobody's grinding out a 6-hour slog to tick off a stage that isn't worth it.</p>
 
   <h2 class="sec">By the numbers</h2>
   <div class="cards">
-    <div class="card"><h3>10 walking days</h3><p>9 active + 1 buffer at Padrón</p></div>
-    <div class="card"><h3>~150 km</h3><p>Total walked, ~16.5 km/day average</p></div>
-    <div class="card"><h3>4 coastal days</h3><p>Porto → Vigo highlights, taxi in between</p></div>
-    <div class="card"><h3>5 + buffer days</h3><p>Vigo → Santiago, unchanged from Bala's v1</p></div>
+    <div class="card"><h3>9 walking days</h3><p>Sep 28 – Oct 6, no rest day needed</p></div>
+    <div class="card"><h3>~150 km</h3><p>Total walked, ~17km / ~4.2h per day average</p></div>
+    <div class="card"><h3>4 coastal highlights</h3><p>Póvoa boardwalks, Apúlia, A Guarda/Oia, Baiona</p></div>
+    <div class="card"><h3>5 classic village days</h3><p>Redondela → Pontevedra → Caldas de Reis → Padrón → Santiago</p></div>
   </div>
 
   <h2 class="sec">Route map</h2>
@@ -107,54 +104,59 @@
 
   <h2 class="sec">Day by day</h2>
   <ul class="timeline">
-    <li><div class="day">Day 1 · Sun 27 Sep <em>Travel</em><span class="tag travel">travel</span></div><div class="what">Depart Chennai / Bay Area → arrive Lisbon. Check in, relax.</div></li>
-    <li><div class="day">Day 2 · Mon 28 Sep <em>Lisbon / Sintra</em></div><div class="what">Sintra day trip — lunch at Arun's home, dinner in Cascais or Sintra.</div></li>
-    <li><div class="day">Day 3 · Tue 29 Sep <em>Porto</em></div><div class="what">Train Lisbon → Porto (~3h). Ribeira, Douro, Old Town.</div></li>
-    <li class="walk"><div class="day">Day 4 · Wed 30 Sep <em>Póvoa de Varzim</em><span class="tag walk">walk · 14km</span></div><div class="what">Taxi Porto → Labruge, walk Labruge → Póvoa de Varzim — coastal boardwalks.</div></li>
-    <li class="walk"><div class="day">Day 5 · Thu 1 Oct <em>Viana do Castelo</em><span class="tag walk">walk · 16km</span></div><div class="what">Taxi Póvoa → Aguçadoura, walk to Marinhas via the Apúlia stilt granaries, taxi on to Viana do Castelo.</div></li>
-    <li class="walk"><div class="day">Day 6 · Fri 2 Oct <em>Porto Mougás, Spain</em><span class="tag walk">walk · 23.5km</span></div><div class="what">Taxi Viana → Caminha, walk into Galicia via A Guarda and Oia's monastery. Highest-rated scenic stage on the route.</div></li>
-    <li class="walk"><div class="day">Day 7 · Sat 3 Oct <em>Vigo</em><span class="tag walk">walk · 16km</span></div><div class="what">Walk Porto Mougás → Baiona (Cabo Silleiro lighthouse), taxi Baiona → Vigo.</div></li>
-    <li class="walk"><div class="day">Day 8 · Sun 4 Oct <em>Redondela</em><span class="tag walk">walk · 15.4km</span></div><div class="what">Vigo → Redondela. Coastal/forest — Compostela "last 100km" starts here.</div></li>
-    <li class="walk"><div class="day">Day 9 · Mon 5 Oct <em>Pontevedra</em><span class="tag walk">walk · 19.8km</span></div><div class="what">Redondela → Pontevedra. One of the prettiest stages on the whole Camino.</div></li>
-    <li class="walk"><div class="day">Day 10 · Tue 6 Oct <em>Caldas de Reis</em><span class="tag walk">walk · 21.1km</span></div><div class="what">Pontevedra → Caldas de Reis.</div></li>
-    <li class="walk"><div class="day">Day 11 · Wed 7 Oct <em>Padrón</em><span class="tag walk">walk · 18.6km</span></div><div class="what">Caldas de Reis → Padrón. Historic pilgrim town.</div></li>
-    <li class="buffer"><div class="day">Day 12 · Thu 8 Oct <em>Padrón</em><span class="tag buffer">buffer</span></div><div class="what">Rest / weather / injury contingency day.</div></li>
-    <li class="walk"><div class="day">Day 13 · Fri 9 Oct <em>Santiago</em><span class="tag walk">walk · 24.4km</span></div><div class="what">Padrón → Santiago, walked in full to keep everyone eligible for the Compostela. Cathedral, Pilgrim Mass, celebration dinner.</div></li>
-    <li><div class="day">Day 14 · Sat 10 Oct <em>Travel</em><span class="tag travel">travel</span></div><div class="what">Fly Santiago → Madrid → home.</div></li>
-    <li><div class="day">Day 15 · Sun 11 Oct <em>Home</em><span class="tag travel">travel</span></div><div class="what">Arrival.</div></li>
+    <li><div class="day">Sun 27 Sep <em>Arrival</em><span class="tag travel">travel</span></div><div class="what">Arrive Lisbon. Lunch at Arun's home in Sintra, afternoon in Sintra/Cascais, evening transfer to Porto.</div></li>
+
+    <li class="walk"><div class="day">Mon 28 Sep <em>Póvoa de Varzim</em><span class="tag walk">walk · 14km · ~3.5h</span></div><div class="what">Taxi Porto → Labruge, then walk in.</div><div class="why">Taxi skips ~16km of Porto's industrial port/Matosinhos stretch — pure city walking, nothing scenic. The walk itself is the start of the famous coastal boardwalks (passadiços) — flat wooden walkways right along the dunes, one of the most photogenic, easiest stretches on the whole Camino.</div></li>
+
+    <li class="walk"><div class="day">Tue 29 Sep <em>Viana do Castelo</em><span class="tag walk">walk · 16km · ~4h</span></div><div class="what">Taxi to Aguçadoura, walk to Marinhas via Apúlia, taxi on to Viana do Castelo.</div><div class="why">The walk passes Apúlia's palheiros — centuries-old wooden granaries built on stilts directly over the beach, arguably the single most photographed spot on this coast. Taxi trims a plain residential stretch beforehand, then covers the last ~13km into Viana, which is pleasant but similar to scenery already covered.</div></li>
+
+    <li class="walk"><div class="day">Wed 30 Sep <em>A Guarda / Oia, Spain</em><span class="tag walk">walk · ~18km · ~4.5h</span></div><div class="what">Taxi Viana → Caminha, walk in from there.</div><div class="why">Taxi skips the full 26.8km Viana–Caminha stage — nice beach walking, but it repeats what the last two days already covered. The walk starts with a small ferry crossing the Rio Minho from Portugal into Spain, then follows wild, cliff-top Galician coastline past A Guarda to Oia's monastery, built right at the water's edge. Widely rated the single most scenic stage on the entire route.</div></li>
+
+    <li class="walk"><div class="day">Thu 1 Oct <em>Vigo</em><span class="tag walk">walk · 16km · ~4h</span></div><div class="what">Walk on to Baiona via the Cabo Silleiro lighthouse, taxi Baiona → Vigo.</div><div class="why">A dramatic lighthouse headland walk into Baiona, one of Galicia's prettiest fishing towns. Taxi covers the ~21km approach into Vigo itself, which is a working port city — worth arriving in, not worth walking into.</div></li>
+
+    <li class="walk"><div class="day">Fri 2 Oct <em>Redondela</em><span class="tag walk">walk · 15.4km · ~4h</span></div><div class="what">Walk straight from Vigo — no taxi needed today.</div><div class="why">Quiet coastal and forest paths. This is also where the traditional "last 100km" pilgrim stretch begins — not that the certificate matters this time, but it's still the classic final approach to Santiago.</div></li>
+
+    <li class="walk"><div class="day">Sat 3 Oct <em>Pontevedra</em><span class="tag walk">walk · 19.8km · ~5h</span></div><div class="what">Walk straight through — no taxi needed today.</div><div class="why">Widely considered one of the most beautiful stages on the whole Camino — woodland paths and the Ría de Pontevedra.</div></li>
+
+    <li class="walk"><div class="day">Sun 4 Oct <em>Caldas de Reis</em><span class="tag walk">walk · ~17km · ~4.5h</span></div><div class="what">Taxi a few km out of Pontevedra, then walk in.</div><div class="why">Taxi skips a short, unremarkable urban exit from Pontevedra. Caldas de Reis itself is a classic pilgrim village, known for its thermal springs.</div></li>
+
+    <li class="walk"><div class="day">Mon 5 Oct <em>Padrón</em><span class="tag walk">walk · 18.6km · ~4.5h</span></div><div class="what">Walk straight from Caldas de Reis — no taxi needed today.</div><div class="why">A historic town tied to the Camino's founding legend — where St. James's body is said to have arrived by boat.</div></li>
+
+    <li class="walk"><div class="day">Tue 6 Oct <em>Santiago — finish</em><span class="tag walk">walk · ~16km · ~4h</span></div><div class="what">Taxi partway out of Padrón, walk the rest of the way in.</div><div class="why">Taxi skips ~8km of flat, unremarkable stretch out of Padrón. The walk in ends at the Cathedral — Pilgrim Mass, celebration dinner.</div></li>
+
+    <li><div class="day">Wed 7 Oct <em>Home</em><span class="tag travel">travel</span></div><div class="what">Fly Santiago → Lisbon → home, same day.</div></li>
   </ul>
 
   <h2 class="sec">Already sorted</h2>
   <div class="resolved-item"><b>Group —</b> everyone's confirmed in for the trip.</div>
-  <div class="resolved-item"><b>Dates —</b> Sep 27 start confirmed. Balamurugan adjusting his Bay Area flights to match.</div>
-  <div class="resolved-item"><b>Pace —</b> everyone's fine with the 23.5km highlight day (Day 6) — not splitting it.</div>
-  <div class="resolved-item"><b>Luggage —</b> going with a bag-transfer service between hotels, so nobody carries a full pack. Provider TBD once accommodations are picked.</div>
+  <div class="resolved-item"><b>Dates —</b> arrive Lisbon Sep 27, walk Sep 28 – Oct 6, fly home via Lisbon Oct 7.</div>
+  <div class="resolved-item"><b>Pace —</b> every day capped at 4-5 hours of walking; taxis cover the rest.</div>
+  <div class="resolved-item"><b>Compostela certificate —</b> not a priority this time, which is what frees up the taxi-heavy route above.</div>
+  <div class="resolved-item"><b>Luggage —</b> going with a bag-transfer service between hotels. Provider TBD once accommodations are picked.</div>
 
   <h2 class="sec">Still open</h2>
-  <div class="open-item"><b>Compostela certificate —</b> does anyone actually want it? This draft has us walking the full last day to stay eligible (min. 100km continuous on foot). If nobody cares about the certificate, we can shorten that day instead.</div>
-  <div class="open-item"><b>Border crossing —</b> the small ferry across the Rio Minho into Spain (Day 6) is seasonal and isn't guaranteed to run — we'll confirm closer to the date. Backup is a taxi via the inland bridge.</div>
-  <div class="open-item"><b>Accommodation —</b> nothing booked yet. Baiona and Santiago fill up in season, so worth locking those in soon.</div>
+  <div class="open-item"><b>Border crossing —</b> the small ferry across the Rio Minho into Spain (Wed 30 Sep) is seasonal and isn't guaranteed to run — we'll confirm closer to the date. Backup is a taxi via the inland bridge.</div>
+  <div class="open-item"><b>Accommodation —</b> nothing booked yet. Baiona and Santiago fill up in season, and the tighter schedule leaves less slack if anything slips — worth locking in soon.</div>
 
-  <footer>Camino Boys Trip · draft v2 · CEG EE '96/97 · questions &amp; reactions via WhatsApp</footer>
+  <footer>Camino Boys Trip · draft v3 · CEG EE '96/97 · questions &amp; reactions via WhatsApp</footer>
 
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
   var stops = [
-    {d:"Day 1",  n:"Lisbon",                 lat:38.7223, lng:-9.1393, note:"Arrive"},
-    {d:"Day 2",  n:"Sintra / Cascais",       lat:38.7999, lng:-9.3906, note:"Sintra day trip, lunch at Arun's, dinner Cascais/Sintra"},
-    {d:"Day 3",  n:"Porto",                  lat:41.1579, lng:-8.6291, note:"Train in from Lisbon"},
-    {d:"Day 4",  n:"Póvoa de Varzim",        lat:41.3800, lng:-8.7642, note:"Walk · boardwalks · 14km"},
-    {d:"Day 5",  n:"Viana do Castelo",       lat:41.6932, lng:-8.8322, note:"Walk via Apúlia granaries · 16km"},
-    {d:"Day 6",  n:"A Guarda / Porto Mougás",lat:41.9032, lng:-8.8749, note:"Walk · crosses into Spain, Oia monastery · 23.5km"},
-    {d:"Day 7",  n:"Baiona",                 lat:42.1215, lng:-8.8438, note:"Walk · Cabo Silleiro lighthouse · 16km, then taxi to Vigo"},
-    {d:"Day 7",  n:"Vigo",                   lat:42.2406, lng:-8.7207, note:"Overnight"},
-    {d:"Day 8",  n:"Redondela",              lat:42.2839, lng:-8.6142, note:"Walk · 15.4km"},
-    {d:"Day 9",  n:"Pontevedra",             lat:42.4310, lng:-8.6444, note:"Walk · 19.8km"},
-    {d:"Day 10", n:"Caldas de Reis",         lat:42.6039, lng:-8.6438, note:"Walk · 21.1km"},
-    {d:"Day 11", n:"Padrón",                 lat:42.7409, lng:-8.6592, note:"Walk · 18.6km, then buffer day"},
-    {d:"Day 13", n:"Santiago de Compostela", lat:42.8805, lng:-8.5456, note:"Walk · 24.4km · finish"}
+    {d:"Sep 27", n:"Lisbon",                 lat:38.7223, lng:-9.1393, note:"Arrive"},
+    {d:"Sep 27", n:"Sintra / Cascais",       lat:38.7999, lng:-9.3906, note:"Lunch at Arun's, afternoon here, evening transfer to Porto"},
+    {d:"Sep 27", n:"Porto",                  lat:41.1579, lng:-8.6291, note:"Overnight before walking begins"},
+    {d:"Sep 28", n:"Póvoa de Varzim",        lat:41.3800, lng:-8.7642, note:"Walk · boardwalks · 14km"},
+    {d:"Sep 29", n:"Viana do Castelo",       lat:41.6932, lng:-8.8322, note:"Walk via Apúlia granaries · 16km"},
+    {d:"Sep 30", n:"A Guarda / Oia",         lat:41.9032, lng:-8.8749, note:"Walk · crosses into Spain, Oia monastery · ~18km"},
+    {d:"Oct 1",  n:"Baiona / Vigo",          lat:42.1215, lng:-8.8438, note:"Walk · Cabo Silleiro lighthouse · 16km, then taxi to Vigo"},
+    {d:"Oct 2",  n:"Redondela",              lat:42.2839, lng:-8.6142, note:"Walk · 15.4km"},
+    {d:"Oct 3",  n:"Pontevedra",             lat:42.4310, lng:-8.6444, note:"Walk · 19.8km"},
+    {d:"Oct 4",  n:"Caldas de Reis",         lat:42.6039, lng:-8.6438, note:"Walk · ~17km"},
+    {d:"Oct 5",  n:"Padrón",                 lat:42.7409, lng:-8.6592, note:"Walk · 18.6km"},
+    {d:"Oct 6",  n:"Santiago de Compostela", lat:42.8805, lng:-8.5456, note:"Walk · ~16km · finish"}
   ];
 
   var map = L.map('map', {scrollWheelZoom:false}).setView([41.2, -8.7], 6);
