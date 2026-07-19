@@ -43,6 +43,10 @@
   #map{height:420px; border-radius:16px; box-shadow:var(--shadow); border:1px solid var(--line)}
   .leaflet-popup-content{font-size:13px; line-height:1.4}
   .leaflet-popup-content b{display:block; margin-bottom:2px}
+  .map-legend{background:#fff; padding:7px 12px; border-radius:8px; font-size:12.5px; box-shadow:var(--shadow); border:1px solid var(--line)}
+  .legend-walk,.legend-taxi{display:inline-block; width:20px; height:0; margin-right:5px; vertical-align:middle}
+  .legend-walk{border-top:3px solid var(--teal)}
+  .legend-taxi{border-top:3px dashed var(--gold)}
 
   .timeline{position:relative; margin:0; padding:0 0 0 6px; list-style:none}
   .timeline li{position:relative; padding:0 0 22px 30px; border-left:2px solid var(--line)}
@@ -138,43 +142,95 @@
   <div class="open-item"><b>Border crossing —</b> the small ferry across the Rio Minho into Spain (Wed 30 Sep) is seasonal and isn't guaranteed to run — we'll confirm closer to the date. Backup is a taxi via the inland bridge.</div>
   <div class="open-item"><b>Accommodation —</b> nothing booked yet. Baiona and Santiago fill up in season, and the tighter schedule leaves less slack if anything slips — worth locking in soon.</div>
 
+  <h2 class="sec">Expected weather</h2>
+  <p class="summary">Late September in northern Portugal is still warm — Porto typically sees highs around 22-24°C (72-75°F) and lows near 14-15°C (57-59°F), mostly dry. Heading north into Galicia and into October, it cools and gets noticeably wetter: Santiago averages highs around 19-20°C (66-68°F), lows near 10-11°C (51-52°F), with rain on roughly half the days in October historically. Expect warm, mostly dry stretches early on and a real chance of rain and coastal wind by the second half of the walk — pack for both.</p>
+  <div class="cards">
+    <div class="card"><h3>Sep 28 – Oct 1 · Portugal</h3><p>Highs ~22-24°C, lows ~14-15°C. Mostly dry, good amount of sun.</p></div>
+    <div class="card"><h3>Oct 2 – 6 · Galicia</h3><p>Highs ~19-20°C, lows ~10-11°C. Rain likely on several days, wind on the cliff/lighthouse sections.</p></div>
+  </div>
+
+  <h2 class="sec">What to pack</h2>
+  <div class="cards">
+    <div class="card"><h3>Feet</h3><p>Broken-in walking shoes or trail runners (not brand new). 2-3 pairs moisture-wicking socks. Blister kit (moleskin/tape) — the most-skipped item people regret.</p></div>
+    <div class="card"><h3>Clothing</h3><p>Quick-dry t-shirts/base layers, one light fleece or insulating layer for cool mornings, comfortable trousers/shorts, one decent outfit for dinners.</p></div>
+    <div class="card"><h3>Rain &amp; wind</h3><p>Packable rain jacket (essential, especially Oct 2 onward), a cap or buff for coastal wind, a small dry bag or pack cover for phone/electronics.</p></div>
+    <div class="card"><h3>Daily kit</h3><p>Small daypack (20-25L is plenty — bags transfer separately, see Luggage above), refillable water bottle, sunscreen &amp; sunglasses, phone charger + EU plug adapter (Type C/F, 230V), some cash for rural stops.</p></div>
+  </div>
+
   <footer>Camino Boys Trip · draft v3 · CEG EE '96/97 · questions &amp; reactions via WhatsApp</footer>
 
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
-  var stops = [
-    {d:"Sep 27", n:"Lisbon",                 lat:38.7223, lng:-9.1393, note:"Arrive"},
-    {d:"Sep 27", n:"Sintra / Cascais",       lat:38.7999, lng:-9.3906, note:"Lunch at Arun's, afternoon here, evening transfer to Porto"},
-    {d:"Sep 27", n:"Porto",                  lat:41.1579, lng:-8.6291, note:"Overnight before walking begins"},
-    {d:"Sep 28", n:"Póvoa de Varzim",        lat:41.3800, lng:-8.7642, note:"Walk · boardwalks · 14km"},
-    {d:"Sep 29", n:"Viana do Castelo",       lat:41.6932, lng:-8.8322, note:"Walk via Apúlia granaries · 16km"},
-    {d:"Sep 30", n:"A Guarda / Oia",         lat:41.9032, lng:-8.8749, note:"Walk · crosses into Spain, Oia monastery · ~18km"},
-    {d:"Oct 1",  n:"Baiona / Vigo",          lat:42.1215, lng:-8.8438, note:"Walk · Cabo Silleiro lighthouse · 16km, then taxi to Vigo"},
-    {d:"Oct 2",  n:"Redondela",              lat:42.2839, lng:-8.6142, note:"Walk · 15.4km"},
-    {d:"Oct 3",  n:"Pontevedra",             lat:42.4310, lng:-8.6444, note:"Walk · 19.8km"},
-    {d:"Oct 4",  n:"Caldas de Reis",         lat:42.6039, lng:-8.6438, note:"Walk · ~17km"},
-    {d:"Oct 5",  n:"Padrón",                 lat:42.7409, lng:-8.6592, note:"Walk · 18.6km"},
-    {d:"Oct 6",  n:"Santiago de Compostela", lat:42.8805, lng:-8.5456, note:"Walk · ~16km · finish"}
+  // Each leg of the route, tagged walk or taxi, in order. Only legs from Porto onward —
+  // the Lisbon/Sintra/Cascais arrival isn't part of this map.
+  var route = [
+    {mode:'taxi', pts:[[41.1579,-8.6291],[41.3283,-8.7424]]},
+    {mode:'walk', pts:[[41.3283,-8.7424],[41.3800,-8.7642]],
+      stop:{d:"Mon 28 Sep", n:"Póvoa de Varzim", note:"Boardwalks · 14km walked"}},
+    {mode:'taxi', pts:[[41.3800,-8.7642],[41.4200,-8.7935]]},
+    {mode:'walk', pts:[[41.4200,-8.7935],[41.5378,-8.7966]],
+      stop:{d:"Tue 29 Sep", n:"Marinhas (Apúlia)", note:"Stilt granaries · 16km walked"}},
+    {mode:'taxi', pts:[[41.5378,-8.7966],[41.6932,-8.8322]],
+      stop:{d:"Tue 29 Sep", n:"Viana do Castelo", note:"Overnight"}},
+    {mode:'taxi', pts:[[41.6932,-8.8322],[41.8745,-8.8354]]},
+    {mode:'walk', pts:[[41.8745,-8.8354],[41.9032,-8.8749],[42.0602,-8.8770]],
+      stop:{d:"Wed 30 Sep", n:"A Guarda / Oia, Spain", note:"Crosses into Spain, Oia monastery · ~18km walked"}},
+    {mode:'taxi', pts:[[42.0602,-8.8770],[42.0750,-8.8690]]},
+    {mode:'walk', pts:[[42.0750,-8.8690],[42.1215,-8.8438]],
+      stop:{d:"Thu 1 Oct", n:"Baiona", note:"Cabo Silleiro lighthouse · 16km walked"}},
+    {mode:'taxi', pts:[[42.1215,-8.8438],[42.2406,-8.7207]],
+      stop:{d:"Thu 1 Oct", n:"Vigo", note:"Overnight"}},
+    {mode:'walk', pts:[[42.2406,-8.7207],[42.2839,-8.6142]],
+      stop:{d:"Fri 2 Oct", n:"Redondela", note:"15.4km walked"}},
+    {mode:'walk', pts:[[42.2839,-8.6142],[42.4310,-8.6444]],
+      stop:{d:"Sat 3 Oct", n:"Pontevedra", note:"19.8km walked"}},
+    {mode:'taxi', pts:[[42.4310,-8.6444],[42.4900,-8.6440]]},
+    {mode:'walk', pts:[[42.4900,-8.6440],[42.6039,-8.6438]],
+      stop:{d:"Sun 4 Oct", n:"Caldas de Reis", note:"~17km walked"}},
+    {mode:'walk', pts:[[42.6039,-8.6438],[42.7409,-8.6592]],
+      stop:{d:"Mon 5 Oct", n:"Padrón", note:"18.6km walked"}},
+    {mode:'taxi', pts:[[42.7409,-8.6592],[42.7950,-8.6300]]},
+    {mode:'walk', pts:[[42.7950,-8.6300],[42.8805,-8.5456]],
+      stop:{d:"Tue 6 Oct", n:"Santiago de Compostela", note:"~16km walked · finish"}}
   ];
 
-  var map = L.map('map', {scrollWheelZoom:false}).setView([41.2, -8.7], 6);
+  var allPts = [];
+  route.forEach(function(seg){ allPts = allPts.concat(seg.pts); });
+
+  var map = L.map('map', {scrollWheelZoom:false});
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18,
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
-  var latlngs = stops.map(function(s){ return [s.lat, s.lng]; });
-  L.polyline(latlngs, {color:'#2f6b66', weight:3, opacity:0.8}).addTo(map);
+  route.forEach(function(seg){
+    var isWalk = seg.mode === 'walk';
+    L.polyline(seg.pts, {
+      color: isWalk ? '#2f6b66' : '#c79a3a',
+      weight: isWalk ? 4 : 3,
+      opacity: 0.85,
+      dashArray: isWalk ? null : '6,6'
+    }).addTo(map);
 
-  stops.forEach(function(s){
-    L.circleMarker([s.lat, s.lng], {
-      radius:7, color:'#fff', weight:2, fillColor:'#2f6b66', fillOpacity:1
-    }).addTo(map).bindPopup('<b>' + s.d + ' · ' + s.n + '</b>' + s.note);
+    if (seg.stop) {
+      var last = seg.pts[seg.pts.length - 1];
+      L.circleMarker(last, {
+        radius:7, color:'#fff', weight:2, fillColor:'#2f6b66', fillOpacity:1
+      }).addTo(map).bindPopup('<b>' + seg.stop.d + ' · ' + seg.stop.n + '</b>' + seg.stop.note);
+    }
   });
 
-  map.fitBounds(latlngs, {padding:[24,24]});
+  var legend = L.control({position:'bottomright'});
+  legend.onAdd = function(){
+    var div = L.DomUtil.create('div', 'map-legend');
+    div.innerHTML = '<span class="legend-walk"></span>Walk&nbsp;&nbsp;<span class="legend-taxi"></span>Taxi';
+    return div;
+  };
+  legend.addTo(map);
+
+  map.fitBounds(allPts, {padding:[24,24]});
 </script>
 </body>
 </html>
